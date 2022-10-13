@@ -30,4 +30,28 @@ describe("sayHello", function () {
     it('should return Hello, Pat! when passed Pat in the function', function () {
         expect(sayHello("Pat")).toBe("Hello, Pat!");
     });
+    it('should return Hello, World! when passed World in the function', function () {
+        expect(sayHello()).toBe("Hello, World!")
+    });
+    it('should return Hello, World! when passed true in the function', function () {
+        expect(sayHello(true)).toBe("Hello, World!");
+    });
+    it('should return Hello, World! when passed false in the function', function () {
+        expect(sayHello(false)).toBe("Hello, World!");
+    });
+    it('should return Hello, World! when passed null in the function', function () {
+        expect(sayHello(null)).toBe("Hello, World!");
+    });
+    it('should return Hello, World! when passed "" in the function', function () {
+        expect(sayHello("")).toBe("Hello, World!");
+    });
+    it('should return Hello, World! when passed a number in the function', function () {
+        expect(sayHello(19)).toBe("Hello, World!");
+    });
+    it('should return Hello, World! when passed "5" in the function', function () {
+        expect(sayHello("5")).toBe("Hello, World!");
+    });
+    it('should return Hello, World! when passed false in the function', function () {
+        expect(sayHello(false)).toBe("Hello, World!");
+    });
 })
