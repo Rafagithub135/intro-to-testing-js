@@ -24,3 +24,18 @@ function isEven(num) {
     return false;
 }
 
+function isVowel(str) {
+    if (str === "a" ||
+        str === "e" ||
+    str === "i" ||
+    str === "o" ||
+    str === "u" ||
+    str === "A" ||
+        str === "E" ||
+    str === "I" ||
+    str === "O" ||
+        str === "U") {
+        return true;
+    }
+    return false;
+}
