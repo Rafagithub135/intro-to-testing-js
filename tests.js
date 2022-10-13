@@ -51,7 +51,7 @@ describe("sayHello", function () {
     it('should return Hello, World! when passed "5" in the function', function () {
         expect(sayHello("5")).toBe("Hello, World!");
     });
-    it('should return Hello, World! when passed false in the function', function () {
-        expect(sayHello(false)).toBe("Hello, World!");
+    it('should return Hello, World! when passed an array in the function', function () {
+        expect(sayHello([1, 3, 4])).toBe("Hello, World!");
     });
 })
