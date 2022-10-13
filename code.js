@@ -9,3 +9,10 @@ function sayHello(str) {
     } else
         return `Hello, ${str}!`;
 }
+
+function isFive(num) {
+    if (num === 5) {
+        return true;
+    }
+    return typeof num === 'boolean';
+}

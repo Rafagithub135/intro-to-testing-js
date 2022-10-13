@@ -55,3 +55,18 @@ describe("sayHello", function () {
         expect(sayHello([1, 3, 4])).toBe("Hello, World!");
     });
 })
+
+describe("ifFive", function (){
+    it('should be a defined function', function () {
+        expect(typeof isFive).toBe('function');
+    });
+    it('should return a boolean no matter what the input', function () {
+        expect(typeof isFive()).toBe('boolean');
+    });
+    it('should return true when the input is 5', function () {
+        expect(isFive(5)).toBe(true);
+    });
+    it('should return false for "5"', function () {
+        expect(isFive("5")).toBe(false);
+    });
+});
