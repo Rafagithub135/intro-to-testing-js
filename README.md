@@ -1,7 +1,7 @@
 # Intro to Testing in JS
 
 ## Summary
-This is an introduction to automated testing in JavaScript. The idea behind automated testing is to provide immediate feedback on the code you write to solve a problem, add a feature, or fix a bug. The feedback from the tests comes in the form of green passing tests or red failing tests. Tests are functions that test functions to compare the results of the actual output vs. the expected output.
+This is an introduction to automated testing in JavaScript. The idea behind automated testing is to provide immediate feedback on the code you write to solve a problem, add a feature, or fix a bug. The feedback from the tests comes in the form of green passing tests or red failing tests. Tests are functions that test, or exercise, OTHER functions, comparing the results of actual output vs. expected output.
 
 Specifically, we will be working with "unit tests", as our type of test. A unit means the smallest possible block of functionality. Most frequently, this means a single user-defined function in code. Unit tests aim to test the building blocks of functionality. In this way, they test application code from the inside-out. Other types of test such as end-to-end tests test the entire application from the outside-in
 
@@ -39,13 +39,14 @@ Additionally, we will be using a process called Test Driven Development, commonl
 ## Reference: The Test Driven Development means that tests "drive" the development.
 [Test Driven Development](https://en.wikipedia.org/wiki/Test-driven_development), TDD, is the process of authoring a test before writing any other code. Here's the TDD workflow:
 
-1. Step 1: Write the smallest possible test: Identify the simplest, smallest thing you want to confirm. For example, before a function exists, assert that the function is defined.
-2. Step 2: Run all the tests to ensure that the new test fails. We're **supposed** to see a red, failing test, since there's no code yet to green it. Red means we did the first step correctly. Seeing the newest test turn red is critical because our tests drive the development, not the other way around.
-3. Step 3: Write only enough code to green that newest test. No more, no less. It's OK if things are hard-coded here.
-4. Step 4: Run all tests. We're looking for green tests across the board.
-5. Step 5: Refactor the code. 
-6. Step 6: Repeat the process by going back to Step 1. The repeat step means  following the steps to add new tests.
-7. Overview: This entire TDD workflow is often explained as the repetition of "Red, Green, Refactor". This encapsulates the idea of writing a single, small failing test, writing only enough code to green the test, and then to refactor, when possible.
+1. Write the smallest possible test: Identify the simplest, smallest thing you want to confirm. For example, before a function exists, assert that the function is defined.
+2. Run all the tests to ensure that the new test fails. We're **supposed** to see a red, failing test, since there's no code yet to green it. Red means we did the first step correctly. Seeing the newest test turn red is critical because our tests drive the development, not the other way around.
+3. Write only enough code to green that newest test. No more, no less. It's OK if things are hard-coded here.
+4. Run all tests. We're looking for green tests across the board.
+5. Refactor the code. 
+6. Repeat the process by going back to Step 1. The repeat step means  following the steps to add new tests.
+
+This entire TDD workflow is often explained as the repetition of "Red, Green, Refactor". This encapsulates the idea of writing a single, small failing test, writing only enough code to green the test, and then to refactor, when possible.
 
 ## Three Laws of Test Driven Development
 - You are not allowed to write any production code unless it is to make a failing unit test pass.
@@ -95,7 +96,7 @@ Additionally, we will be using a process called Test Driven Development, commonl
     - Refresh `report.html` in your browser.
     - Fix the syntax error and confirm that tests are all green.
 
-1. Now, go to `code.js` and replace the function statement for `helloWorld` with a function experession. Do all the tests stay green or not? Why or why not? Double check your syntax. These are interchangeable because functions are *first class* citizens in the JS language.
+1. Now, go to `code.js` and replace the function statement for `helloWorld` with a function expression. Do all the tests stay green or not? Why or why not? Double check your syntax. These are interchangeable because functions are *first class* citizens in the JS language.
 ```js
 // function statement syntax
 function helloWorld() {
@@ -137,7 +138,7 @@ Our next exercise is to follow the TDD workflow to develop incremental tests and
 - Finally, push your work by running `git push`. Pushing uploads your new commits to your remote repository, meaning your own fork on GitHub.
 
 ### Exercise #2 Ensure our function returns the right data type.
-- New tests will each have their own `expect`, `it`,  the `describe`
+- New tests for `sayHello` will each have their own `expect` and `it` inside the `describe` previously created. Each function you are writing and testing should typically have its own `describe`
 - Step 1: The smallest possible test, now that the function exists, is to ensure that calling the function gives us a string. Inside of `tests.js`, add an assertion to `sayHello` that it "should return a string when called.". The test should look similar to `expect(typeof sayHello()).toBe("string")`
 - Step 2: Run all tests to make sure that the new test starts red.
 - Step 3: Have your `sayHello` function return a string. The simplest code and smallest change possible is to return an empty string `return ""`. 
@@ -147,7 +148,7 @@ Our next exercise is to follow the TDD workflow to develop incremental tests and
 - Always: Add, commit, and push your work to GitHub.
 
 ### Exercise #3 - Add a test to confirm actual vs. expected output.
-- Step 1: How that the function exists and returns the right data type, let's add our first realistic assertion. In `tests.js`, assert that `sayHello("Jane")` returns `"Hello, Jane!"`. Our first test should be *super* simple and *super* small.
+- Step 1: Now that the function exists and returns the right data type, let's add our first realistic assertion. In `tests.js`, assert that `sayHello("Jane")` returns `"Hello, Jane!"`. Our first test should be *super* simple and *super* small.
 - Step 2: Run all tests and make sure that this newly added test is red.
 - Step 3: If the test wants us to return `"Hello, Jane!"` then literally write `return "Hello, Jane!";` because that's the simplest way to green a test looking for `"Hello, Jane!"`.
 - Step 4: Run all tests. They should all be green at this point.
@@ -298,9 +299,9 @@ Our next exercise is to follow the TDD workflow to develop incremental tests and
 - With each successive assertion/expectation in a test for a specific function, we make that unit more robust and reliable, and usually easier to refactor.
 - Completeness of the unit: 
     - If the implementation for an `add` function only passes one assertion that `add(2, 3)` returns `5`, but does not work with any other numbers, then the unit is not considered complete. The implementation is incomplete, and the unit test composed of multiple assertions/expectations should demonstrate this clearly.
-    - Another example: if the `isVowel` function only works for lowercase letters but fails to account , then we would consider the implementation to be incorrect. The "unit" of functionality is incomplete
+    - Another example: if the `isVowel` function only works for lowercase letters but fails to account for uppercase letters, then we would consider the implementation to be incorrect. The "unit" of functionality is incomplete.
     - Another example: 
-- It is not feasible to test an infinite number of inputs with our assertions/expectations in a unit test. To prove that a function works in all cases is a practice closer to mathematical proofs. This is known as [Correctness](https://en.wikipedia.org/wiki/Correctness_(computer_science)) and is outside the scope of most software development due to economic and time constraints. 
+- It is not feasible to test an infinite number of inputs with our assertions/expectations in a unit test. I.e., you CANNOT write all possible unit tests for realistic functions. To prove that a function works in all cases is a practice closer to mathematical proofs. This is known as [Correctness](https://en.wikipedia.org/wiki/Correctness_(computer_science)) and is outside the scope of most software development due to economic and time constraints. So... how do you know when you have written ENOUGH test cases? That is a very good question and there is no simple answer. Generally though, test the boundaries of data types, including null, undefined, empty strings, valid and invalid values, very large and very small positive and negative numbers, etc. You should also test permutations of argument values. For example, if a function foo has 2 parameters: a number and a string, then two of the unit tests should be a positive value for the number and an empty string, and a negative value for the number and an empty string.
 - Moving forward, any time you find a bug in your implementation, here is the best practice:
     1. Author test code that reproduces that bug in an automated way. This may involve adding one or more assertions/expectations to a unit test. 
     2. Refactor your implementation, relying on your newly added automated test to guide the solution. 
